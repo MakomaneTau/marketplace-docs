@@ -1,0 +1,6 @@
+# Generated MkDocs output is uploaded by the GitHub Pages workflow.
+site/
+
+# Local Python tooling
+.venv/
+__pycache__/

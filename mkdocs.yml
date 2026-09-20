@@ -1,0 +1,63 @@
+site_name: Marketplace engineering guide
+site_description: Architecture, API, data model, operations, and contribution guide for Marketplace.
+site_url: https://makomanetau.github.io/marketplace-docs/
+repo_url: https://github.com/MakomaneTau/marketplace-docs
+repo_name: MakomaneTau/marketplace-docs
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - javascripts/mermaid-init.js
+
+nav:
+  - Home: index.md
+  - Product:
+      - User journeys: product/user-journeys.md
+      - Web application: product/web-application.md
+  - Architecture:
+      - System overview: architecture/system-overview.md
+      - Authentication and security: architecture/security.md
+      - Data model: architecture/data-model.md
+  - API:
+      - API conventions: api/overview.md
+      - Endpoint reference: api/endpoints.md
+      - Errors and integrations: api/errors-and-integration.md
+  - Operations:
+      - Local development: operations/local-development.md
+      - Deployment and GitHub Pages: operations/deployment.md
+      - Testing and troubleshooting: operations/testing.md
+  - Project:
+      - Repository map: project/repository-map.md
+      - Contributing: project/contributing.md
