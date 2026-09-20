@@ -13,6 +13,7 @@ This site documents the implemented application across three independently deplo
 ## Start here
 
 - [System overview](architecture/system-overview.md) explains how the browser, Next.js gateway, Express API, and Supabase fit together.
+- [Technology and design decisions](product/technology-and-design-decisions.md) explains why the application uses this stack and these boundaries.
 - [User journeys](product/user-journeys.md) maps buyer and seller capabilities end to end.
 - [Endpoint reference](api/endpoints.md) lists the current `/api/v1` contract.
 - [Data model](architecture/data-model.md) documents the PostgreSQL schema and its relationships.

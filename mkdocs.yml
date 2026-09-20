@@ -44,6 +44,7 @@ extra_javascript:
 nav:
   - Home: index.md
   - Product:
+      - Technology and design decisions: product/technology-and-design-decisions.md
       - User journeys: product/user-journeys.md
       - Web application: product/web-application.md
   - Architecture:
