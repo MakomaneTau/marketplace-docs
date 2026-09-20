@@ -27,9 +27,9 @@ This documentation describes the checked-in code and Supabase migrations. The AP
 
 ```mermaid
 flowchart LR
-  B[Browser] --> W[Marketplace Web\nNext.js]
-  W --> G[Same-origin API gateway\n/api/marketplace/*]
-  G --> A[Marketplace API\nExpress /api/v1]
-  A --> S[Supabase\nAuth · PostgreSQL · Storage]
+  B[Browser] --> W[Marketplace Web]
+  W --> G[Same-origin API gateway]
+  G --> A[Marketplace API]
+  A --> S[Supabase]
   W --> C[HttpOnly session cookies]
 ```

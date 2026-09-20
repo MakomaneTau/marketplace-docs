@@ -1,0 +1,11 @@
+/* Keep generated Mermaid SVGs inside the reading column on narrow screens. */
+.mermaid {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.mermaid svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}

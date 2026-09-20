@@ -5,17 +5,13 @@
 Supabase Auth creates the identity. An `auth.users` trigger provisions the matching `public.profiles` row, defaulting safely to buyer unless sign-up metadata explicitly requests a seller role. Buyers must meet the database `is_student` invariant; sellers can submit a private verification request.
 
 ```mermaid
-sequenceDiagram
-  participant B as Browser
-  participant W as Next.js gateway
-  participant A as Express API
-  participant S as Supabase Auth
-  B->>W: POST /api/marketplace/auth/login
-  W->>A: POST /api/v1/auth/login
-  A->>S: Validate credentials
-  S-->>A: Session and user
-  A-->>W: Versioned response
-  W-->>B: HttpOnly session cookies, no token payload
+flowchart LR
+  Browser --> Gateway[Next.js gateway]
+  Gateway --> API[Express API]
+  API --> Auth[Supabase Auth]
+  Auth --> API
+  API --> Gateway
+  Gateway --> Session[HttpOnly session cookies]
 ```
 
 Protected Express endpoints use a bearer access token. The API distinguishes identity from authorization: seller product, shop, verification, and seller workspace operations additionally check seller role and shop ownership. Database RLS remains a second line of defense.

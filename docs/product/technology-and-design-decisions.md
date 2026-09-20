@@ -16,9 +16,9 @@ Marketplace is designed around a practical problem: a campus community needs a t
 
 ```mermaid
 flowchart LR
-  UI[Experience layer\nNext.js] --> API[Business layer\nExpress API]
-  API --> DATA[Data and identity layer\nSupabase]
-  DOCS[Documentation\nMkDocs] -. explains .-> UI
+  UI[Experience layer] --> API[Business layer]
+  API --> DATA[Data and identity layer]
+  DOCS[Documentation] -. explains .-> UI
   DOCS -. explains .-> API
   DOCS -. explains .-> DATA
 ```
@@ -37,16 +37,13 @@ This makes changes safer. A seller form cannot make itself authoritative by send
 The browser calls `/api/marketplace/*` on the Next.js application, which forwards to Express `/api/v1/*`.
 
 ```mermaid
-sequenceDiagram
-  participant Browser
-  participant Web as Next.js gateway
-  participant API as Express API
-  Browser->>Web: Same-origin request
-  Web->>Web: Check unsafe request origin
-  Web->>Web: Read HttpOnly session cookie
-  Web->>API: Forward request with bearer token
-  API-->>Web: Versioned response
-  Web-->>Browser: Safe response; session stays HttpOnly
+flowchart LR
+  Browser --> Gateway[Next.js gateway]
+  Gateway --> Origin[Validate request origin]
+  Gateway --> Cookie[Read HttpOnly session]
+  Gateway --> API[Express API]
+  API --> Gateway
+  Gateway --> Browser
 ```
 
 This decision reduces browser exposure to access and refresh tokens, avoids browser-side CORS complexity for normal web traffic, gives the application one place to refresh sessions, and lets protected route checks happen before seller-only pages render. Direct API clients are still possible, but they use the explicit bearer-token contract.
