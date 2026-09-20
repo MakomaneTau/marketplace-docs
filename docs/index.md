@@ -1,4 +1,4 @@
-# Marketplace engineering guide
+# Marketplace Documentation
 
 Marketplace is a campus-oriented multi-vendor marketplace. Buyers discover listings, save products, message sellers, place delivery or campus-pickup orders, and review completed purchases. Sellers create one shop, manage listings and fulfillment, communicate with buyers, and view shop metrics.
 
